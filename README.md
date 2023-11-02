@@ -92,8 +92,21 @@ The above steps describe the process of creating a 12x12 crossword grid. It invo
 
  ![Alt text](https://github.com/CerenTurker/palindrome/blob/main/algorithm.png)
 
-<<<<<<< HEAD
  [This article was used. ](https://www.researchgate.net/publication/334491580_Cevrimici_Dinamik_Bir_Capraz_Bulmaca_Uretme_Algoritmasi_ve_Performansi_An_Online_Dynamic_Cross-Puzzle_Generation_Algorithm_and_Its_Performance)
-=======
- [This article was used. ](https://www.researchgate.net/publication/334491580_Cevrimici_Dinamik_Bir_Capraz_Bulmaca_Uretme_Algoritmasi_ve_Performansi_An_Online_Dynamic_Cross-Puzzle_Generation_Algorithm_and_Its_Performance)
->>>>>>> 79bf9e3 (added README.md)
+
+
+## todo list
+
+|Class Or Function|Description|
+|-|-|
+|PalindromeFinder Class|It introduces a class called "PalindromeFinder." This class is responsible for finding palindromic words within a given paragraph.|
+|PalindromeFinder Constructor|The __construct function is a constructor. It is automatically called when an instance of the class is created. It takes a paragraph as a parameter and assigns it to the $paragraph property.|
+|findPalindromes Function|This function is used to find palindromic words within the given paragraph. Its steps involve splitting the paragraph into words, checking each word for palindromes, storing them in the $palindromes array, and finally returning an array of the found palindromes.|
+|isPalindrome Function|The isPalindrome function checks whether a word is a palindrome or not. It performs the following tasks: it cleans the word by removing punctuation and spaces, converts the word to lowercase, gets the reverse of the word, compares the original word with its reverse, and returns true if it's a palindrome, or false if it's not.|
+|CrosswordGrid Class|This class is responsible for creating the crossword grid of a specific size. It manages the grid size and its content.|
+|display() Function|This function displays the crossword grid as an HTML table. Each cell can contain a white or black square or a letter.|
+|placeWord() Function|It is used to place a word on the crossword grid. The word is placed either horizontally or vertically, with the orientation chosen randomly.|
+|placeHorizontal() and placeVertical() Functions|These functions handle the placement of words horizontally and vertically. They start by selecting a random starting point and check for collisions. They also consider what's necessary for cross-connections.|
+|fillEmptyCells() Function|This function fills empty cells in the crossword grid with black color. It is used to improve the appearance of the grid.|
+|CrossWordGenerator Class|This class is used for generating a crossword puzzle. It manages the grid size and the list of words to be placed on the crossword grid.|
+|generateCrossword() Function|This function attempts to place the specified words on the crossword grid. Each word is placed at a random position, and the placement process is repeated until it's successful without conflicts. Eventually, any remaining empty cells in the crossword grid are filled with black color, and the generated crossword grid is displayed.|
