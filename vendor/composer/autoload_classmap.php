@@ -7,4 +7,5 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
+    'Operation\\Palindrome\\PalindromeFinder' => $baseDir . '/src/Palindrome/PalindromeFinder.php',
 );

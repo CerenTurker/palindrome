@@ -6,5 +6,5 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Palindrome\\' => array($baseDir . '/Operation'),
+    'Operation\\' => array($baseDir . '/src'),
 );

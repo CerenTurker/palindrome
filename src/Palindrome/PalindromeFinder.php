@@ -1,5 +1,5 @@
 <?php
-namespace Palindrome;
+namespace Operation\Palindrome;
 class PalindromeFinder {
     private $paragraph;
     private $palindromes = [];
