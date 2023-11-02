@@ -92,4 +92,8 @@ The above steps describe the process of creating a 12x12 crossword grid. It invo
 
  ![Alt text](https://github.com/CerenTurker/palindrome/blob/main/algorithm.png)
 
+<<<<<<< HEAD
  [This article was used. ](https://www.researchgate.net/publication/334491580_Cevrimici_Dinamik_Bir_Capraz_Bulmaca_Uretme_Algoritmasi_ve_Performansi_An_Online_Dynamic_Cross-Puzzle_Generation_Algorithm_and_Its_Performance)
+=======
+ [This article was used. ](https://www.researchgate.net/publication/334491580_Cevrimici_Dinamik_Bir_Capraz_Bulmaca_Uretme_Algoritmasi_ve_Performansi_An_Online_Dynamic_Cross-Puzzle_Generation_Algorithm_and_Its_Performance)
+>>>>>>> 79bf9e3 (added README.md)
