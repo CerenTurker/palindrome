@@ -13,11 +13,21 @@ Install PHP:
 For Windows: Run the installer you downloaded and follow the installation wizard's instructions.
 For macOS: PHP is pre-installed on macOS. You can enable it in your Terminal.
 For Linux: You can install PHP using your package manager. For example, on Ubuntu, you can use apt:
-Terminal
+
+Install Windows
 ```
   sudo apt update
   sudo apt install php
 ```
+
+Install Mac
+```
+brew install php
+```
+```
+php -S localhost:8000 -t .
+```
+
 Verify Installation: Open your terminal or command prompt and run php -v to confirm that PHP is installed and see the installed version.
 
 Start Writing PHP: You can now start writing PHP code in a text editor or integrated development environment (IDE). Save your PHP files with a .php extension and run them using a web server or the command line.
