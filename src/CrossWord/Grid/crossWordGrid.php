@@ -1,14 +1,12 @@
 <?php
-
 namespace Operation\CrossWord\Grid;
-
 
 class CrosswordGrid {
     private $grid;
     private $gridSize;
 
     public function __construct($size) {
-        // Constructor initializes the crossword grid with the specified size.
+        // Constructor: Initializes the crossword grid with the specified size.
         $this->gridSize = $size;
         $this->grid = array_fill(0, $size, array_fill(0, $size, ' '));
     }
@@ -39,76 +37,79 @@ class CrosswordGrid {
     }
 
     private function placeHorizontal($word, $length) {
+        // Place a word horizontally on the grid.
         $maxX = $this->gridSize - $length;
         $x = rand(0, $maxX);
         $y = rand(0, $this->gridSize - 1);
         
+        // Check the cells to the left and right for word connectivity.
         $leftCell = ($x > 0) ? $this->grid[$y][$x - 1] : ' ';
         $rightCell = ($x + $length < $this->gridSize) ? $this->grid[$y][$x + $length] : ' ';
         
+        // Ensure there's no word on both sides, meaning no cross-connection.
         if ($leftCell !== ' ' && $rightCell !== ' ') {
-            return false; // Her iki tarafta da kelime var, çapraz bağlantı yok
+            return false; // No connection on both sides
         }
-    
+
+        // Check for collisions and add the word if no issues are found.
         for ($i = 0; $i < $length; $i++) {
             $currentChar = $word[$i];
             if ($this->grid[$y][$x + $i] !== ' ' && $this->grid[$y][$x + $i] !== $currentChar) {
-                return false; // Çakışma tespit edildi, kelime eklenmiyor
+                return false; // Collision detected, don't add the word
             }
         }
-    
-        // Çapraz bağlantı yoksa ve çakışma yoksa kelime ekleniyor
+
+        // If no cross-connection and no collisions, add the word.
         for ($i = 0; $i < $length; $i++) {
             $currentChar = $word[$i];
             if ($i == 0 && $leftCell !== ' ' && $leftCell !== $currentChar) {
-                return false; // İlk harf başına eklemeye çalışıyor
+                return false; // Trying to add at the beginning
             }
             if ($i == $length - 1 && $rightCell !== ' ' && $rightCell !== $currentChar) {
-                return false; // Son harf sonuna eklemeye çalışıyor
+                return false; // Trying to add at the end
             }
             $this->grid[$y][$x + $i] = $currentChar;
         }
         return true;
     }
-    
-    
 
     private function placeVertical($word, $length) {
+        // Place a word vertically on the grid.
         $maxY = $this->gridSize - $length;
         $x = rand(0, $this->gridSize - 1);
         $y = rand(0, $maxY);
         
+        // Check the cells above and below for word connectivity.
         $topCell = ($y > 0) ? $this->grid[$y - 1][$x] : ' ';
         $bottomCell = ($y + $length < $this->gridSize) ? $this->grid[$y + $length][$x] : ' ';
         
+        // Ensure there's no word on both sides, meaning no cross-connection.
         if ($topCell !== ' ' && $bottomCell !== ' ') {
-            return false; // Her iki tarafta da kelime var, çapraz bağlantı yok
+            return false; // No connection on both sides
         }
-    
+
+        // Check for collisions and add the word if no issues are found.
         for ($i = 0; $i < $length; $i++) {
             $currentChar = $word[$i];
             if ($this->grid[$y + $i][$x] !== ' ' && $this->grid[$y + $i][$x] !== $currentChar) {
-                return false; // Çakışma tespit edildi, kelime eklenmiyor
+                return false; // Collision detected, don't add the word
             }
         }
-    
-        // Çapraz bağlantı yoksa ve çakışma yoksa kelime ekleniyor
+
+        // If no cross-connection and no collisions, add the word.
         for ($i = 0; $i < $length; $i++) {
             $currentChar = $word[$i];
             if ($i == 0 && $topCell !== ' ' && $topCell !== $currentChar) {
-                return false; // İlk harf başına eklemeye çalışıyor
+                return false; // Trying to add at the beginning
             }
             if ($i == $length - 1 && $bottomCell !== ' ' && $bottomCell !== $currentChar) {
-                return false; // Son harf sonuna eklemeye çalışıyor
+                return false; // Trying to add at the end
             }
             $this->grid[$y + $i][$x] = $currentChar;
         }
         return true;
     }
-    
-    
-    
-    
+
     public function fillEmptyCells() {
         // Fill empty cells with HTML div elements displaying black squares.
         for ($i = 0; $i < $this->gridSize; $i++) {
@@ -120,5 +121,4 @@ class CrosswordGrid {
         }
     }
 }
-
 ?>
