@@ -2,16 +2,19 @@
 
 namespace Operation\CrossWord\Grid;
 
+
 class CrosswordGrid {
     private $grid;
     private $gridSize;
 
     public function __construct($size) {
+        // Constructor initializes the crossword grid with the specified size.
         $this->gridSize = $size;
         $this->grid = array_fill(0, $size, array_fill(0, $size, ' '));
     }
 
     public function display() {
+        // Display the crossword grid as an HTML table.
         echo "<table>";
         for ($i = 0; $i < $this->gridSize; $i++) {
             echo "<tr style='border: 1px solid black; width: 20px;'>";
@@ -24,6 +27,7 @@ class CrosswordGrid {
     }
 
     public function placeWord($word) {
+        // Place a word on the crossword grid, either horizontally or vertically.
         $wordLength = strlen($word);
         $isHorizontal = (bool)rand(0, 1);
 
@@ -31,36 +35,6 @@ class CrosswordGrid {
             return $this->placeHorizontal($word, $wordLength);
         } else {
             return $this->placeVertical($word, $wordLength);
-        }
-    }
-
-    public function canPlaceConnectedWord($word, $startX, $startY, $startChar) {
-        $wordLength = strlen($word);
-
-        if ($startX + $wordLength > $this->gridSize) {
-            return false;
-        }
-
-        if ($this->grid[$startY][$startX] !== ' ' && $this->grid[$startY][$startX] !== $startChar) {
-            return false;
-        }
-
-        for ($i = 0; $i < $wordLength; $i++) {
-            $currentChar = $word[$i];
-            if ($this->grid[$startY][$startX + $i] !== ' ' && $this->grid[$startY][$startX + $i] !== $currentChar) {
-                return false;
-            }
-        }
-
-        return true;
-    }
-
-    public function placeConnectedWord($word, $startX, $startY, $startChar) {
-        $wordLength = strlen($word);
-
-        for ($i = 0; $i < $wordLength; $i++) {
-            $currentChar = $word[$i];
-            $this->grid[$startY][$startX + $i] = $currentChar;
         }
     }
 
@@ -131,8 +105,12 @@ class CrosswordGrid {
         }
         return true;
     }
-
+    
+    
+    
+    
     public function fillEmptyCells() {
+        // Fill empty cells with HTML div elements displaying black squares.
         for ($i = 0; $i < $this->gridSize; $i++) {
             for ($j = 0; $j < $this->gridSize; $j++) {
                 if ($this->grid[$i][$j] === ' ') {
@@ -142,6 +120,5 @@ class CrosswordGrid {
         }
     }
 }
-
 
 ?>
